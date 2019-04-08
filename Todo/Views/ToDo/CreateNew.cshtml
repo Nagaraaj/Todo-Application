@@ -1,0 +1,54 @@
+﻿@model Todo.Models.Todos
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateNew</title>
+</head>
+<body>
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    
+    @using (Html.BeginForm()) {
+        @Html.ValidationSummary(true)
+    <div class="row" style="margin:25px">
+        <fieldset>
+            <legend>Todos</legend>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Name, "Task Details")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+    
+           @* <div class="editor-label">
+                @Html.LabelFor(model => model.Status)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Status)
+                @Html.ValidationMessageFor(model => model.Status)
+            </div>*@
+    <br />
+            <p>
+                <input class="btn btn-default"  type="submit" value="Create" />
+            </p>
+        </fieldset>
+        </div>
+    }
+    
+    <div class="row" style="margin:25px">
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>
